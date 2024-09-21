@@ -1,3 +1,4 @@
+#ルーティング処理
 """
 URL configuration for blogproject project.
 
@@ -17,6 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# ブラウザからのリクエスト先のURLがadmin/と一致(https://<ホスト名>/admin)した場合にadmin.site.urlsで定義されているビューを呼び出す。
 urlpatterns = [
     path("admin/", admin.site.urls),
 ]
