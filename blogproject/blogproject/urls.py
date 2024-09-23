@@ -16,9 +16,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 # ブラウザからのリクエスト先のURLがadmin/と一致(https://<ホスト名>/admin)した場合にadmin.site.urlsで定義されているビューを呼び出す。
 urlpatterns = [
     path("admin/", admin.site.urls),
+    
+    # https://ホスト名 へのアクセスはblogappのURLconf(urls.py)を呼び出す
+    # include(引数)：指定されたモジュールをインポートするためのパス（名前空間）を取得する
+    path('',include('blogapp.urls')),
 ]
